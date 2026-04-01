@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebFlash Studio | Next-Gen Web Design</title>
+    <meta name="description" content="Futuristic high-performance websites for freelancers. Built fast, designed to convert.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#0F172A',
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        electric: '#3B82F6',
+                        cyan: '#22D3EE',
+                        indigo: '#6366F1',
+                        violet: '#8B5CF6',
+                    },
+                    animation: {
+                        'float-slow': 'float 12s ease-in-out infinite',
+                        'float-medium': 'float 8s ease-in-out infinite',
+                        'float-fast': 'float 6s ease-in-out infinite',
+                        'float-icon': 'floatIcon 4s ease-in-out infinite',
+                        'spin-slow': 'spin 4s linear infinite',
+                        'gradient-shift': 'gradient-shift 8s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+                            '50%': { transform: 'translateY(-20px) translateX(10px)' },
+                        },
+                        floatIcon: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-4px)' },
+                        },
+                        'gradient-shift': {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body
+    class="antialiased font-sans font-light selection:bg-cyan-500/20 selection:text-cyan-50 overflow-x-hidden relative">
+
+    <!-- Intelligence System Cursors -->
+    <div id="cursor-glow-field"></div>
+    <div id="custom-cursor"></div>
+
+    <!-- Reactive Ambient Background Elements -->
+    <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-40 pointer-events-none transition-transform duration-1000 ease-out"
+        id="bg-grid"></div>
+    <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-indigo-600/10 blur-[120px] pointer-events-none animate-float-slow ambient-orb transition-transform duration-700"
+        id="orb-1"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[30vw] h-[30vw] rounded-full bg-cyan-600/10 blur-[120px] pointer-events-none animate-float-medium ambient-orb transition-transform duration-700"
+        id="orb-2"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 inset-x-0 z-50 glass-panel border-b-0 border-white/5 transition-all duration-500 hover:bg-slate-900/60">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-slate-100 magnetic hover:scale-105 transition-transform">
+                <iconify-icon icon="solar:flash-linear" class="text-xl text-cyan-400"></iconify-icon>
+                <span class="font-medium text-xs tracking-tighter uppercase">WebFlash</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-xs font-medium text-slate-400">
+                <a href="#process"
+                    class="link-underline magnetic hover:text-cyan-300 transition-colors py-2">Process</a>
+                <a href="#pricing"
+                    class="link-underline magnetic hover:text-cyan-300 transition-colors py-2">Pricing</a>
+                <a href="#faq" class="link-underline magnetic hover:text-cyan-300 transition-colors py-2">FAQ</a>
+            </div>
+            <a href="#contact"
+                class="magnetic btn-sweep px-4 py-2 text-xs font-medium text-slate-100 bg-white/5 border border-white/10 rounded-full hover:bg-white/15 hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-300">
+                Start Project
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="focus-section relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+        data-index="0">
+        <!-- Floating Parallax UI Elements -->
+        <div class="mouse-parallax absolute top-1/4 left-1/4 w-32 h-32 border border-white/5 rounded-2xl bg-white/[0.01] backdrop-blur-sm animate-float-medium transform rotate-12 hidden md:block"
+            data-speed="0.05"></div>
+        <div class="mouse-parallax absolute bottom-1/4 right-1/4 w-24 h-24 border border-cyan-500/10 rounded-full bg-cyan-500/5 backdrop-blur-md animate-float-fast hidden md:block"
+            data-speed="-0.08"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <div
+                class="reveal-element inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/5 border border-indigo-500/10 text-indigo-300 text-xs font-medium mb-8 hover:bg-indigo-500/10 transition-colors cursor-default">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                System Status: Accepting New Clients
+            </div>
+
+            <h1 class="reveal-element text-5xl md:text-7xl font-medium tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-6"
+                style="transition-delay: 100ms;">
+                Your professional website. <br class="hidden md:block" />
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 animate-gradient-shift bg-[length:200%_auto]">Ready
+                    in days, not weeks.</span>
+            </h1>
+
+            <p class="reveal-element text-slate-400 text-sm md:text-base max-w-2xl mx-auto mb-10 font-light leading-relaxed"
+                style="transition-delay: 200ms;">
+                Precision-engineered digital presences for independent professionals. We handle the complexity so you
+                can focus on your craft.
+            </p>
+
+            <div class="reveal-element flex flex-col sm:flex-row items-center justify-center gap-4"
+                style="transition-delay: 300ms;">
+                <a href="#contact"
+                    class="magnetic btn-sweep group relative px-6 py-3 rounded-full bg-white text-navy font-medium text-xs flex items-center gap-2 overflow-hidden hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
+                    <span class="relative z-10">Get My Website</span>
+                    <iconify-icon icon="solar:arrow-right-linear"
+                        class="relative z-10 text-sm group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
+                </a>
+                <a href="#process"
+                    class="magnetic link-underline px-6 py-3 rounded-full text-xs font-medium text-slate-300 hover:text-white transition-colors flex items-center gap-2 group">
+                    <span class="group-hover:tracking-wide transition-all duration-300">Explore the process</span>
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-[#020617] to-transparent pointer-events-none">
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="focus-section py-24 relative z-10" data-index="1">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-container">
+                <!-- Card 1 -->
+                <div
+                    class="reveal-element interactive-card glass-panel p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-500">
+                    <div class="card-inner">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/5 flex items-center justify-center border border-blue-500/10 mb-6 group-hover:scale-110 group-hover:bg-blue-500/10 transition-all duration-500 animate-float-icon"
+                            style="animation-delay: 0s;">
+                            <iconify-icon icon="solar:rocket-linear"
+                                class="text-xl text-blue-400 group-hover:animate-pulse"></iconify-icon>
+                        </div>
+                        <h3
+                            class="text-base font-medium text-slate-200 mb-2 tracking-tight group-hover:text-white transition-colors">
+                            Hyper-Fast Delivery</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                            From brief to deployment in as little as 24 hours. No drawn-out revisions, just precise
+                            execution.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal-element interactive-card glass-panel p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-500"
+                    style="transition-delay: 100ms;">
+                    <div class="card-inner">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/5 flex items-center justify-center border border-cyan-500/10 mb-6 group-hover:scale-110 group-hover:bg-cyan-500/10 transition-all duration-500 animate-float-icon"
+                            style="animation-delay: 1s;">
+                            <iconify-icon icon="solar:cpu-linear"
+                                class="text-xl text-cyan-400 group-hover:animate-pulse"></iconify-icon>
+                        </div>
+                        <h3
+                            class="text-base font-medium text-slate-200 mb-2 tracking-tight group-hover:text-white transition-colors">
+                            Intelligent Architecture</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                            Built on modern, high-performance stacks. Your site will be lightning fast, accessible, and
+                            SEO-optimized by default.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal-element interactive-card glass-panel p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-500"
+                    style="transition-delay: 200ms;">
+                    <div class="card-inner">
+                        <div class="w-10 h-10 rounded-lg bg-violet-500/5 flex items-center justify-center border border-violet-500/10 mb-6 group-hover:scale-110 group-hover:bg-violet-500/10 transition-all duration-500 animate-float-icon"
+                            style="animation-delay: 2s;">
+                            <iconify-icon icon="solar:shield-check-linear"
+                                class="text-xl text-violet-400 group-hover:animate-pulse"></iconify-icon>
+                        </div>
+                        <h3
+                            class="text-base font-medium text-slate-200 mb-2 tracking-tight group-hover:text-white transition-colors">
+                            Secure & Scalable</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                            Enterprise-grade security measures without the enterprise price tag. Ready to scale as your
+                            independent business grows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Stats Section -->
+    <section class="focus-section py-16 relative z-10 w-full overflow-hidden">
+        <div class="absolute inset-x-0 top-0 flex justify-center">
+            <div class="divider-line h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 pt-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="reveal-element group">
+                    <h3
+                        class="text-4xl font-medium text-white tracking-tighter mb-1 transition-all duration-500 group-hover:text-cyan-400">
+                        <span class="stat-number" data-target="99">0</span>%</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Performance Score</p>
+                </div>
+                <div class="reveal-element group" style="transition-delay: 100ms;">
+                    <h3
+                        class="text-4xl font-medium text-white tracking-tighter mb-1 transition-all duration-500 group-hover:text-blue-400">
+                        <span class="stat-number" data-target="24">0</span>h</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Minimum Delivery</p>
+                </div>
+                <div class="reveal-element group" style="transition-delay: 200ms;">
+                    <h3
+                        class="text-4xl font-medium text-white tracking-tighter mb-1 transition-all duration-500 group-hover:text-indigo-400">
+                        <span class="stat-number" data-target="50">0</span>+</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Projects Shipped</p>
+                </div>
+                <div class="reveal-element group" style="transition-delay: 300ms;">
+                    <h3
+                        class="text-4xl font-medium text-white tracking-tighter mb-1 transition-all duration-500 group-hover:text-violet-400">
+                        <span class="stat-number" data-target="100">0</span>%</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Ownership</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute inset-x-0 bottom-0 flex justify-center mt-16">
+            <div class="divider-line h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="focus-section py-24 relative" data-index="2">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="reveal-element text-3xl md:text-4xl font-medium tracking-tight text-white mb-4">A system
+                    designed for flow.</h2>
+                <p class="reveal-element text-slate-400 text-xs md:text-sm max-w-xl mx-auto"
+                    style="transition-delay: 100ms;">Three simple steps. Zero friction. We guide the technical, you
+                    provide the vision.</p>
+            </div>
+
+            <div class="relative pl-8 md:pl-0 stagger-container">
+                <!-- Energy Timeline Line -->
+                <div
+                    class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/5 md:-translate-x-1/2 overflow-hidden">
+                    <div
+                        class="w-full h-1/4 bg-gradient-to-b from-transparent via-cyan-400 to-transparent animate-float-fast opacity-50">
+                    </div>
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Step 1 -->
+                    <div
+                        class="reveal-element relative flex flex-col md:flex-row items-start md:items-center md:justify-between group cursor-default">
+                        <div
+                            class="absolute left-[-2rem] md:left-1/2 w-4 h-4 rounded-full bg-[#020617] border-2 border-slate-700 md:-translate-x-1/2 group-hover:border-cyan-400 group-hover:bg-cyan-950 transition-all duration-300 z-10 mt-1 md:mt-0 shadow-[0_0_10px_rgba(34,211,238,0)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]">
+                        </div>
+
+                        <div
+                            class="md:w-5/12 text-left md:text-right pr-0 md:pr-8 mb-4 md:mb-0 group-hover:-translate-x-2 transition-transform duration-300">
+                            <span
+                                class="text-cyan-400 text-[10px] md:text-xs font-medium uppercase tracking-widest mb-1 block">Phase
+                                01</span>
+                            <h3
+                                class="text-lg font-medium text-slate-200 tracking-tight group-hover:text-white transition-colors">
+                                Quick Brief</h3>
+                        </div>
+                        <div
+                            class="md:w-5/12 interactive-card glass-panel p-6 rounded-xl text-xs text-slate-400 border-l-2 border-l-transparent group-hover:border-l-cyan-400 group-hover:text-slate-200 transition-all duration-300">
+                            <div class="card-inner">Complete a structured 5-minute form outlining your goals, aesthetic
+                                preferences, and content needs. No meetings required unless requested.</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="reveal-element relative flex flex-col md:flex-row items-start md:items-center md:justify-between group cursor-default"
+                        style="transition-delay: 100ms;">
+                        <div
+                            class="absolute left-[-2rem] md:left-1/2 w-4 h-4 rounded-full bg-[#020617] border-2 border-slate-700 md:-translate-x-1/2 group-hover:border-indigo-400 group-hover:bg-indigo-950 transition-all duration-300 z-10 mt-1 md:mt-0 shadow-[0_0_10px_rgba(99,102,241,0)] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+                        </div>
+
+                        <div
+                            class="md:w-5/12 order-2 md:order-1 interactive-card glass-panel p-6 rounded-xl text-xs text-slate-400 border-r-0 md:border-r-2 border-l-2 md:border-l-0 border-transparent md:group-hover:border-r-indigo-400 group-hover:border-l-indigo-400 md:group-hover:border-l-transparent group-hover:text-slate-200 transition-all duration-300 mt-4 md:mt-0 text-left md:text-right">
+                            <div class="card-inner">Our team translates your brief into a high-fidelity digital reality
+                                using premium UI components and modern frameworks.</div>
+                        </div>
+                        <div
+                            class="md:w-5/12 order-1 md:order-2 text-left pl-0 md:pl-8 group-hover:translate-x-2 transition-transform duration-300">
+                            <span
+                                class="text-indigo-400 text-[10px] md:text-xs font-medium uppercase tracking-widest mb-1 block">Phase
+                                02</span>
+                            <h3
+                                class="text-lg font-medium text-slate-200 tracking-tight group-hover:text-white transition-colors">
+                                Design & Development</h3>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="reveal-element relative flex flex-col md:flex-row items-start md:items-center md:justify-between group cursor-default"
+                        style="transition-delay: 200ms;">
+                        <div
+                            class="absolute left-[-2rem] md:left-1/2 w-4 h-4 rounded-full bg-[#020617] border-2 border-slate-700 md:-translate-x-1/2 group-hover:border-violet-400 group-hover:bg-violet-950 transition-all duration-300 z-10 mt-1 md:mt-0 shadow-[0_0_10px_rgba(139,92,246,0)] group-hover:shadow-[0_0_20px_rgba(139,92,246,0.6)]">
+                        </div>
+
+                        <div
+                            class="md:w-5/12 text-left md:text-right pr-0 md:pr-8 mb-4 md:mb-0 group-hover:-translate-x-2 transition-transform duration-300">
+                            <span
+                                class="text-violet-400 text-[10px] md:text-xs font-medium uppercase tracking-widest mb-1 block">Phase
+                                03</span>
+                            <h3
+                                class="text-lg font-medium text-slate-200 tracking-tight group-hover:text-white transition-colors">
+                                Delivery & Handoff</h3>
+                        </div>
+                        <div
+                            class="md:w-5/12 interactive-card glass-panel p-6 rounded-xl text-xs text-slate-400 border-l-2 border-l-transparent group-hover:border-l-violet-400 group-hover:text-slate-200 transition-all duration-300">
+                            <div class="card-inner">Your site goes live. You receive full ownership, secure credentials,
+                                and a simplified dashboard for any future content edits.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="focus-section py-24 relative z-10" data-index="3">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="reveal-element text-3xl md:text-4xl font-medium tracking-tight text-white mb-4">Clear,
+                    uncompromising value.</h2>
+                <p class="reveal-element text-slate-400 text-xs md:text-sm">Select the tier that fits your current
+                    trajectory.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto stagger-container">
+                <!-- Standard Tier -->
+                <div
+                    class="reveal-element interactive-card glass-panel p-8 rounded-2xl flex flex-col h-full border border-white/5 hover:border-white/10 transition-colors duration-500">
+                    <div class="card-inner h-full flex flex-col">
+                        <h3 class="text-base font-medium text-slate-200 tracking-tight mb-2">Essential Web</h3>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-3xl font-medium text-white tracking-tight">$300</span>
+                            <span class="text-xs text-slate-500">one-time</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-8 flex-grow">Perfect for individual professionals needing a
+                            sharp, high-converting landing page.</p>
+
+                        <ul class="space-y-3 mb-8 text-xs text-slate-300">
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-linear"
+                                    class="text-slate-500 group-hover:text-cyan-400 transition-colors"></iconify-icon>
+                                Delivery: 5 days</li>
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-linear"
+                                    class="text-slate-500 group-hover:text-cyan-400 transition-colors"></iconify-icon>
+                                Clean, modern landing page</li>
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-linear"
+                                    class="text-slate-500 group-hover:text-cyan-400 transition-colors"></iconify-icon>
+                                Mobile responsive</li>
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-linear"
+                                    class="text-slate-500 group-hover:text-cyan-400 transition-colors"></iconify-icon>
+                                Contact form & Basic SEO</li>
+                        </ul>
+
+                        <button
+                            class="magnetic btn-sweep w-full py-2.5 rounded-lg border border-slate-700 text-slate-300 text-xs font-medium hover:bg-slate-800 hover:text-white transition-all duration-300">
+                            Select Essential
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Tier -->
+                <div class="reveal-element interactive-card relative p-[1px] rounded-2xl h-full overflow-hidden group"
+                    style="transition-delay: 100ms;">
+                    <!-- Animated Energy Border -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-500 via-cyan-400 to-violet-500 opacity-50 group-hover:opacity-100 animate-gradient-shift bg-[length:300%_300%] transition-opacity duration-500 z-0">
+                    </div>
+
+                    <div class="p-8 rounded-[15px] flex flex-col h-full bg-[#020617] relative z-10 card-inner">
+                        <div class="absolute top-0 right-6 transform -translate-y-1/2">
+                            <span
+                                class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-[10px] font-medium px-2 py-1 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(34,211,238,0.5)]">Most
+                                Popular</span>
+                        </div>
+                        <h3 class="text-base font-medium text-white tracking-tight mb-2">Pro Presence</h3>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-3xl font-medium text-white tracking-tight">$500</span>
+                            <span class="text-xs text-slate-400">one-time</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-8 flex-grow">For established freelancers requiring
+                            multi-page depth and advanced integrations.</p>
+
+                        <ul class="space-y-3 mb-8 text-xs text-slate-200">
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-bold"
+                                    class="text-cyan-400 group-hover:scale-110 transition-transform"></iconify-icon>
+                                Delivery: 7 days</li>
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-bold"
+                                    class="text-cyan-400 group-hover:scale-110 transition-transform"></iconify-icon>
+                                Everything in Essential</li>
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-bold"
+                                    class="text-cyan-400 group-hover:scale-110 transition-transform"></iconify-icon>
+                                Enhanced UI/UX</li>
+                            <li class="flex items-center gap-2 group"><iconify-icon icon="solar:check-circle-bold"
+                                    class="text-cyan-400 group-hover:scale-110 transition-transform"></iconify-icon>
+                                Advanced animations & Performance</li>
+                        </ul>
+
+                        <button
+                            class="magnetic btn-sweep w-full py-2.5 rounded-lg bg-white text-navy text-xs font-medium hover:bg-slate-100 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:scale-[1.02]">
+                            Select Pro
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="reveal-element text-center text-[10px] text-slate-500 mt-8 italic"
+                style="transition-delay: 200ms;">* Note: This is a portfolio/demo project. Pricing is illustrative.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="focus-section py-16 relative z-10" data-index="4">
+        <div class="max-w-3xl mx-auto px-6">
+            <div id="testimonial-carousel" class="relative h-48 md:h-40">
+                <!-- Slide 1 -->
+                <div
+                    class="testimonial-slide absolute inset-0 transition-all duration-700 ease-in-out opacity-100 scale-100 flex flex-col items-center justify-center text-center">
+                    <iconify-icon icon="solar:quote-right-linear" class="text-3xl text-cyan-500/20 mb-4"></iconify-icon>
+                    <p class="text-sm md:text-base text-slate-200 font-light mb-4 leading-relaxed">"The delivery was
+                        incredibly fast, and the code quality is out of this world. It feels like magic."</p>
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700"></div>
+                        <span class="text-xs text-slate-400">Sarah Jenkins, Designer</span>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div
+                    class="testimonial-slide absolute inset-0 transition-all duration-700 ease-in-out opacity-0 scale-95 pointer-events-none flex flex-col items-center justify-center text-center">
+                    <iconify-icon icon="solar:quote-right-linear" class="text-3xl text-blue-500/20 mb-4"></iconify-icon>
+                    <p class="text-sm md:text-base text-slate-200 font-light mb-4 leading-relaxed">"They took my messy
+                        brief and turned it into a high-performance masterpiece in days."</p>
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700"></div>
+                        <span class="text-xs text-slate-400">Mark T., Consultant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="focus-section py-24 relative z-10" data-index="5">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="reveal-element text-3xl font-medium tracking-tight text-white mb-4">Frequently Asked
+                    Questions</h2>
+            </div>
+
+            <div class="space-y-2 stagger-container">
+                <!-- FAQ Item -->
+                <div class="reveal-element border-b border-white/5">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left group">
+                        <span class="text-sm text-slate-200 group-hover:text-white transition-colors">How does the 5-day
+                            delivery work?</span>
+                        <iconify-icon icon="solar:add-linear"
+                            class="faq-icon text-cyan-400 text-lg transition-transform duration-500"></iconify-icon>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                        <p class="text-xs text-slate-400 pb-6 leading-relaxed">Once the brief is completed and payment
+                            is processed, the clock starts. We work sequentially on architecture, design, and
+                            development, providing you a live preview link by day 4 for final sign-off.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="reveal-element border-b border-white/5" style="transition-delay: 100ms;">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left group">
+                        <span class="text-sm text-slate-200 group-hover:text-white transition-colors">Do I own the code
+                            and assets?</span>
+                        <iconify-icon icon="solar:add-linear"
+                            class="faq-icon text-cyan-400 text-lg transition-transform duration-500"></iconify-icon>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                        <p class="text-xs text-slate-400 pb-6 leading-relaxed">Yes. 100%. Upon final delivery, all
+                            source code, assets, and hosting credentials are transferred directly to you. No vendor
+                            lock-in, ever.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="reveal-element border-b border-white/5" style="transition-delay: 200ms;">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left group">
+                        <span class="text-sm text-slate-200 group-hover:text-white transition-colors">What stack do you
+                            use?</span>
+                        <iconify-icon icon="solar:add-linear"
+                            class="faq-icon text-cyan-400 text-lg transition-transform duration-500"></iconify-icon>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                        <p class="text-xs text-slate-400 pb-6 leading-relaxed">We primarily build with Next.js, Tailwind
+                            CSS, and Framer Motion. This ensures enterprise-grade performance, excellent SEO, and smooth
+                            animations out of the box.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="focus-section py-24 relative" data-index="6">
+        <div class="max-w-xl mx-auto px-6">
+            <div class="interactive-card glass-panel p-8 md:p-12 rounded-[2rem] relative overflow-hidden group">
+                <div class="card-inner">
+                    <!-- Predictive ambient glow based on hover proximity -->
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 blur-[80px] rounded-full pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100">
+                    </div>
+
+                    <div class="mb-10 text-center relative z-10 transition-all duration-500" id="form-header">
+                        <h2 class="reveal-element text-2xl font-medium tracking-tight text-white mb-2">Initiate
+                            Transmission</h2>
+                        <p class="reveal-element text-xs text-slate-400" style="transition-delay: 100ms;">Secure
+                            channel. Response within 24 hours.</p>
+                    </div>
+
+                    <!-- Form -->
+                    <form id="contact-form" class="space-y-8 relative z-10 transition-all duration-500">
+                        <div class="reveal-element input-wrapper group/input" style="transition-delay: 150ms;">
+                            <input type="text" id="name" placeholder=" " required
+                                class="w-full py-2 text-xs text-slate-200 border-none bg-transparent appearance-none">
+                            <label for="name" class="text-xs">Your Name</label>
+                            <div
+                                class="absolute bottom-0 left-0 h-[1px] w-0 bg-cyan-400 transition-all duration-500 group-focus-within/input:w-full">
+                            </div>
+                        </div>
+
+                        <div class="reveal-element input-wrapper group/input" style="transition-delay: 200ms;">
+                            <input type="email" id="email" placeholder=" " required
+                                class="w-full py-2 text-xs text-slate-200 border-none bg-transparent appearance-none">
+                            <label for="email" class="text-xs">Email Address</label>
+                            <div
+                                class="absolute bottom-0 left-0 h-[1px] w-0 bg-cyan-400 transition-all duration-500 group-focus-within/input:w-full">
+                            </div>
+                        </div>
+
+                        <div class="reveal-element input-wrapper group/input" style="transition-delay: 250ms;">
+                            <textarea id="message" rows="3" placeholder=" " required
+                                class="w-full py-2 text-xs text-slate-200 border-none bg-transparent appearance-none resize-none"></textarea>
+                            <label for="message" class="text-xs">Project Details</label>
+                            <div
+                                class="absolute bottom-0 left-0 h-[1px] w-0 bg-cyan-400 transition-all duration-500 group-focus-within/input:w-full">
+                            </div>
+                        </div>
+
+                        <div class="reveal-element pt-4" style="transition-delay: 300ms;">
+                            <button type="submit" id="submit-btn"
+                                class="magnetic w-full relative group/btn overflow-hidden rounded-lg p-[1px] hover:scale-[1.02] transition-transform duration-300">
+                                <span
+                                    class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg opacity-50 group-hover/btn:opacity-100 transition-opacity duration-500"></span>
+                                <div
+                                    class="relative bg-[#020617] px-4 py-3 rounded-[7px] flex items-center justify-center gap-2 transition-all duration-300">
+                                    <span id="btn-text"
+                                        class="text-xs font-medium text-white transition-all duration-300">Send
+                                        Request</span>
+                                    <iconify-icon id="btn-icon" icon="solar:plain-linear"
+                                        class="text-white text-sm group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300"></iconify-icon>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success State (Hidden by default) -->
+                    <div id="form-success"
+                        class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#020617]/90 backdrop-blur-md opacity-0 scale-95 pointer-events-none transition-all duration-500 rounded-[2rem]">
+                        <div
+                            class="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mb-4 border border-cyan-500/20 shadow-[0_0_30px_rgba(34,211,238,0.2)]">
+                            <iconify-icon icon="solar:check-read-linear" class="text-3xl text-cyan-400"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium text-white tracking-tight mb-2">Transmission Received</h3>
+                        <p class="text-xs text-slate-400 text-center max-w-[200px]">Our systems are processing your
+                            request. Stand by for contact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Footer Divider -->
+    <div class="w-full flex justify-center">
+        <div class="divider-line h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent"></div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="py-12 relative z-10 bg-[#01030b] overflow-hidden">
+        <!-- Subtle Footer Glow -->
+        <div
+            class="absolute bottom-[-50%] left-1/2 -translate-x-1/2 w-full max-w-2xl h-64 bg-cyan-600/5 blur-[100px] rounded-[100%] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
+
+                <div class="flex flex-col items-start gap-2">
+                    <div class="flex items-center gap-2 text-slate-200">
+                        <iconify-icon icon="solar:flash-linear"
+                            class="text-lg text-cyan-400 animate-float-icon"></iconify-icon>
+                        <span class="font-medium text-sm tracking-tighter uppercase">WebFlash Studio</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Engineering digital experiences.</p>
+                </div>
+
+                <div class="flex flex-wrap md:justify-end gap-6">
+                    <a href="https://www.linkedin.com/in/brady-rodriguez" target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-all duration-300 hover:scale-105 link-underline hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">
+                        <iconify-icon icon="ri:linkedin-line" class="text-lg animate-float-icon"
+                            style="animation-delay: 0s;"></iconify-icon>
+                        <span class="text-xs font-medium">LinkedIn</span>
+                    </a>
+
+                    <a href="https://github.com/BradyRB" target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-all duration-300 hover:scale-105 link-underline hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
+                        <iconify-icon icon="ri:github-line" class="text-lg animate-float-icon"
+                            style="animation-delay: 0.5s;"></iconify-icon>
+                        <span class="text-xs font-medium">GitHub</span>
+                    </a>
+
+                    <a href="https://brady-portfolio-web.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center gap-2 text-slate-400 hover:text-indigo-400 transition-all duration-300 hover:scale-105 link-underline hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]">
+                        <iconify-icon icon="solar:link-linear" class="text-lg animate-float-icon"
+                            style="animation-delay: 1s;"></iconify-icon>
+                        <span class="text-xs font-medium">Portfolio</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/brady.rodrb" target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center gap-2 text-slate-400 hover:text-violet-400 transition-all duration-300 hover:scale-105 link-underline hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)]">
+                        <iconify-icon icon="ri:instagram-line" class="text-lg animate-float-icon"
+                            style="animation-delay: 1.5s;"></iconify-icon>
+                        <span class="text-xs font-medium">Instagram</span>
+                    </a>
+
+                    <a href="mailto:bradydaniel.rb@gmail.com"
+                        class="group flex items-center gap-2 text-slate-400 hover:text-cyan-200 transition-all duration-300 hover:scale-105 link-underline hover:drop-shadow-[0_0_8px_rgba(165,243,252,0.5)]">
+                        <iconify-icon icon="solar:letter-linear" class="text-lg animate-float-icon"
+                            style="animation-delay: 2s;"></iconify-icon>
+                        <span class="text-xs font-medium">Email</span>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/5 flex justify-between items-center text-[10px] text-slate-600 uppercase tracking-widest">
+                <p>&copy; 2026 Brady Rodriguez. All Systems Nominal.</p>
+                <p>Status: Online</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Intelligence Core Script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

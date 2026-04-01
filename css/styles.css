@@ -1,0 +1,314 @@
+/* Base & Variables */
+:root {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --scroll-velocity: 0;
+}
+
+body {
+    background-color: #020617;
+    color: #E2E8F0;
+    cursor: none;
+}
+
+/* Responsive Custom Cursor */
+@media (hover: none) and (pointer: coarse) {
+    body {
+        cursor: auto;
+    }
+
+    #custom-cursor,
+    #cursor-glow-field {
+        display: none !important;
+    }
+}
+
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
+    mix-blend-mode: difference;
+    will-change: transform;
+}
+
+#custom-cursor.interactive {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    mix-blend-mode: normal;
+}
+
+#cursor-glow-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle closest-side, rgba(34, 211, 238, 0.08), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    will-change: transform;
+    transition: opacity 0.5s ease;
+}
+
+/* Background Grid */
+.bg-grid-pattern {
+    background-image:
+        linear-gradient(to right, rgba(30, 41, 59, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Cinematic Reveal & Stagger System */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: blur(4px);
+    will-change: opacity, transform, filter;
+}
+
+.reveal-element.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+}
+
+/* Depth & Focus System */
+section {
+    transition: opacity 0.8s ease, filter 0.8s ease;
+    will-change: opacity, filter;
+}
+
+body.is-scrolling section:not(.focus-active) {
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+/* Reactive Cards (3D & Glow) */
+.interactive-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease, border-radius 0.3s ease;
+    will-change: transform;
+}
+
+.interactive-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(600px circle at var(--card-mouse-x, 0) var(--card-mouse-y, 0), rgba(255, 255, 255, 0.15), transparent 40%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.interactive-card:hover {
+    border-radius: 1.5rem;
+}
+
+.interactive-card:hover::before {
+    opacity: 1;
+}
+
+.card-inner {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+/* Glass Panel */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Micro-Interactions */
+.btn-sweep {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-sweep:hover::after {
+    left: 150%;
+}
+
+.link-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease-out;
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+.divider-line {
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.divider-line.active {
+    width: 100%;
+}
+
+/* Form Inputs */
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.input-wrapper input:hover,
+.input-wrapper textarea:hover {
+    border-bottom-color: rgba(34, 211, 238, 0.3);
+    background: linear-gradient(to top, rgba(34, 211, 238, 0.02), transparent);
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+    outline: none;
+    border-bottom-color: #22D3EE;
+    box-shadow: 0 1px 0 0 #22D3EE;
+    background: linear-gradient(to top, rgba(34, 211, 238, 0.05), transparent);
+}
+
+.input-wrapper label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #64748B;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-wrapper textarea~label {
+    top: 1rem;
+    transform: none;
+}
+
+.input-wrapper input:focus~label,
+.input-wrapper input:not(:placeholder-shown)~label,
+.input-wrapper textarea:focus~label,
+.input-wrapper textarea:not(:placeholder-shown)~label {
+    transform: translateY(-1.5rem) scale(0.85);
+    transform-origin: left top;
+    color: #22D3EE;
+}
+
+/* Form State Transitions */
+.form-fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.success-fade-in {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    pointer-events: auto !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal-element {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+    #custom-cursor,
+    #cursor-glow-field {
+        display: none;
+    }
+
+    body {
+        cursor: auto;
+    }
+
+    .interactive-card {
+        transform: none !important;
+    }
+
+    .card-inner {
+        transform: none !important;
+    }
+}
